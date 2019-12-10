@@ -36,7 +36,7 @@ $(document).ready(function(){
                     localStorage.setItem('token', result.result.token);
                     localStorage.setItem('id', result.result.id);
                     localStorage.setItem('name', user);
-                    window.location = "file:///C:/Users/Raphael%20D/Desktop/TRAVAIL/Kwick/main.html"
+                    window.location = "main.html"
                 },
                 error: function(xhr, status, error) {
                     $(signup_username).css("border", "#ec4e20 1px solid")

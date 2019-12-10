@@ -85,7 +85,7 @@ $(document).ready(function(){
             }
         })
     }
-        
+    
     /////////////////////////////   disconnect     //////////////
 
     $("#disconnect").on("click",function(){
@@ -99,7 +99,7 @@ $(document).ready(function(){
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
             success: function(result, status, xhr) {
-                window.location = "file:///C:/Users/Raphael%20D/Desktop/TRAVAIL/Kwick/login.html";
+                window.location = "login.html";
                 localStorage.removeItem("token");
                 localStorage.removeItem("id");
             },

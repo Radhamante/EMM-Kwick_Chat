@@ -101,6 +101,7 @@ body {
 #message svg{
     color: #26547c;
     transition: 0.1s;
+    cursor: pointer;
 }
 #message svg:hover{
     color: #2367a1;
