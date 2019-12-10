@@ -4,6 +4,7 @@ $(document).ready(function(){
     // }
 
     ////////////////////////       AFFICHAGE DES USERS         ///////////////////////////////
+
     setInterval(function(){
         $.ajax({
             url: "http://greenvelvet.alwaysdata.net/kwick/api/user/logged/" + localStorage.getItem('token'),
@@ -11,10 +12,9 @@ $(document).ready(function(){
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
             success: function(result, status, xhr) {
-                
                 $( ".userrs" ).remove();
                 for (let index = 0; index < result.result.user.length; index++) {
-                    $("#user").append( "<div class='userrs'><i class='far fa-dot-circle'></i><p class='all_user'>" + result.result.user[index] + "</b></div>")
+                    $("#user").append("<div class='userrs'><i class='far fa-dot-circle'></i><p class='all_user'>" + result.result.user[index] + "</b></div>")
                 }  
             },
             error: function(xhr, status, error) {
@@ -23,6 +23,7 @@ $(document).ready(function(){
     },1000)
 
     /////////////////////////     affichage des messages ////////////////////////
+
     sessionStorage.setItem("time",0)
     function showmessage() {
         $.ajax({
@@ -61,8 +62,6 @@ $(document).ready(function(){
     //     $(".test").append("<span>" + "test" + "</span>")
     // });
 
-
-
     ///////////////////////////    envoie d'un message     /////////////////////////
    
     $("#send_message").on("click", function(){
@@ -87,10 +86,8 @@ $(document).ready(function(){
         })
     }
         
-    
-        
-
     /////////////////////////////   disconnect     //////////////
+
     $("#disconnect").on("click",function(){
         $("#disconnect_menu_background").css("display","flex");
         $("#disconnect_menu").css("display","flex");
@@ -115,13 +112,13 @@ $(document).ready(function(){
         $("#disconnect_menu").css("display","none");
     });
 
-    // $('#message_content').keypress(function(event){
+    $('#message_content').keypress(function(event){
 	
-    //     var keycode = (event.keyCode ? event.keyCode : event.which);
-    //     if(keycode == '13'){
-    //         send_message()	
-    //     }
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+            send_message()	
+        }
     
-    // });
+    });
 
 });
