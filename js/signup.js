@@ -3,8 +3,8 @@ $(document).ready(function(){
 
     $("#signup_submit").on("click",function(){
         if ($(signup_password1).val() == $(signup_password2).val()) {
-            $(signup_password1).css("border", "#f7d002 1px solid")
-            $(signup_password2).css("border", "#f7d002 1px solid")
+            $(signup_password1).css("border", "#c0d6df 1px solid")
+            $(signup_password2).css("border", "#c0d6df 1px solid")
             signup()
         }
         else{
@@ -24,7 +24,7 @@ $(document).ready(function(){
             success: function(result, status, xhr) {
                 console.log(result);
                 if (result.result.status == "failure") {
-                    $(signup_username).css("border", "#c0d6df 1px solid")
+                    $(signup_username).css("border", "#ec4e20 1px solid")
                 }else{
                     localStorage.setItem('token', result.result.token);
                     localStorage.setItem('id', result.result.id);
