@@ -31,7 +31,8 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 5px 1px var(--maincolor)
+    box-shadow: 0 0 5px 1px var(--maincolor);
+    margin-right : 150px;
 }
 h2 {
     margin-top: 8%;
@@ -43,12 +44,13 @@ h2 {
     border-bottom: var(--maincolor) 1px solid;
 }
 span {
-    margin-top: 5%;
+    margin-top: 3%;
     color: var(--textcolor);
     text-transform: uppercase;
 }
 input {
-    margin-top: 5%;
+    height: 20px;
+    margin-top: 3%;
     background-color: var(--background);
     border: var(--maincolor) 1px solid;
     border-radius: 10px;
@@ -63,6 +65,13 @@ a {
     left: 5px;
 }
 input[type="button"]{
-    margin-top: 7%;
-    color: var(--textcolor);
+    display: none;
+}
+label{
+    margin-top: 5%;
+    color: #26547c;
+    font-size: 30px;
+    border: #26547c 1px solid;
+    border-radius: 50%;
+    padding: 0px 6px 2px 6px
 }

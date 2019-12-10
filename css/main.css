@@ -15,19 +15,17 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    scrollbar-color: var(--maincolor) var(--background);
-    scrollbar-width: thin
+
+
 }
 #userPart h2{
     font-weight: initial;
     font-size: 18.5px;
-    border: var(--maincolor) 1px solid;
-    padding: 5px 10px;
-    border-radius: 40px;
-    margin-left: 5px; 
+    border-bottom: var(--maincolor) 1px solid;
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
+    width: 100%
 }
 #messageTitle {
     background-color: var(--background);
@@ -45,8 +43,6 @@ body {
     overflow-y: scroll;
     scrollbar-color: var(--maincolor) var(--background);
     scrollbar-width: thin;
-    overflow-x: scroll;
-
 }
 #message {
     background-color: var(--background);
@@ -68,21 +64,25 @@ body {
     width: 100vw;
     height: 100vh;
 }
+#user{
+    overflow-y: scroll;
+    scrollbar-color: var(--maincolor) var(--background);
+    scrollbar-width: thin;
+}
 #user div{
     display: flex;
     align-items: center;
     margin: 10px 5px;
     color: var(--textcolor);
-    border: var(--maincolor) solid 1px;
-    border-radius: 40px
+
 }
 #user svg{
-    margin-left: 5px; 
+    margin-left: 7px; 
     color: #8bd67c
 }
 .all_user{
     margin: 6px 0;
-    margin-left: 5px;
+    margin-left: 7px;
     display: inline-block;
     padding: 0;
     height: min-content;
@@ -99,11 +99,11 @@ body {
     border-radius: 20px
 }
 #message svg{
-    color: #a8c2cc;
+    color: #26547c;
     transition: 0.1s;
 }
 #message svg:hover{
-    font-size: 32px; 
+    color: #2367a1;
 }
 .msg{
     margin: 0 0 10px 20px;
@@ -123,6 +123,7 @@ body {
     margin: 0;
     margin-left: 10px;
     margin-bottom: 2px;
+    ;
 }
 .msg p{
     max-width: 600px;
@@ -201,5 +202,14 @@ body {
     cursor: pointer;
 }
 #disconnect_menu div span:hover{
-    background-color: var(--maincolor);
+    background-color: #c0d6df3f ;
+}
+
+@media (max-width: 992px) { 
+    #userPart{
+        display: none
+    }
+    #messagePart{
+        width: 100%
+    }
 }
