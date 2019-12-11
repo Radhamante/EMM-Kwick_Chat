@@ -154,7 +154,7 @@ $(document).ready(function(){
         })
     }
     $("#smileyMenuTitle").on("click", function(){
-        alert("ajoute le smiley sur le quel vous avez cliquez a la fin de votre message \n⚪ pour retirer le smiley\nseulement un seul smiley possible\nhttps://wprock.fr/blog/emoji-smiley-copier-coller/ ")
+        alert("ajoute le smiley sur le quel vous avez cliquez a la fin de votre message \n⚪ pour retirer le smiley\nseulement un seul smiley possible\nle smiley est invisible sur la saisie et apparait uniquement lors de l'envoie du message\nhttps://wprock.fr/blog/emoji-smiley-copier-coller/ ")
     })
     
 
