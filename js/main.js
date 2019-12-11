@@ -2,11 +2,7 @@ $(document).ready(function(){
     // if (localStorage.getItem('token').length < 0) {
     //     window.location = "file:///C:/Users/Raphael%20D/Desktop/TRAVAIL/Kwick/login"
     // }
-    let smiley = {
-        "smile" : ' 😀 ',
-        "mad" : ' 😤 ',
-        "cry" : ' 😥 '
-    }
+    let smiley = ""
 
 
     ////////////////////////       AFFICHAGE DES USERS         ///////////////////////////////
@@ -76,20 +72,77 @@ $(document).ready(function(){
     // });
 
     ///////////////////////////    envoie d'un message     /////////////////////////
-   
+    
+    let smileyMenuState = 0;
+
     $("#send_message").on("click", function(){
         send_message()
     })
+    $("#smileyMenuButton").on("click", function(){
+        if (smileyMenuState == 0) {
+            $("#smileyMenu").css("display","flex")
+            smileyMenuState = 1
+        }else{
+            $("#smileyMenu").css("display","none")
+            smileyMenuState = 0
+        }
+    })
+    $("#⚪").on("click", function(){
+        smiley = "" 
+    })
+    $("#😀").on("click", function(){
+        smiley = "😀" 
+    })
+    $("#😎").on("click", function(){
+        smiley = "😎" 
+    })
+    $("#😍").on("click", function(){
+        smiley = "😍" 
+    })
+    $("#💩").on("click", function(){
+        smiley = "💩" 
+    })
+    $("#😂").on("click", function(){
+        smiley = "😂" 
+    })
+    $("#😅").on("click", function(){
+        smiley = "😅" 
+    })
+    $("#🤩").on("click", function(){
+        smiley = "🤩" 
+    })
+    $("#😰").on("click", function(){
+        smiley = "😰" 
+    })
+    $("#😴").on("click", function(){
+        smiley = "😴" 
+    })
+    $("#🖕").on("click", function(){
+        smiley = "🖕" 
+    })
+    $("#👌").on("click", function(){
+        smiley = "👌" 
+    })
+    $("#👍").on("click", function(){
+        smiley = "👍" 
+    })
+    $("#💪").on("click", function(){
+        smiley = "💪" 
+    })
+    $("#❔").on("click", function(){
+        smiley = "❔" 
+    })
     function send_message() {
         $.ajax({
-            url: "http://greenvelvet.alwaysdata.net/kwick/api/say/" + localStorage.getItem('token') + "/" + localStorage.getItem('id') + "/" + $("#message_content").val(),
+            url: "http://greenvelvet.alwaysdata.net/kwick/api/say/" + localStorage.getItem('token') + "/" + localStorage.getItem('id') + "/" + $("#message_content").val() + smiley,
             dataType: 'jsonp',
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
             success: function(result, status, xhr) {
-                console.log(result)
+                console.log($("#message_content").val())
                 $("#message_content").val('')
                 $("#message_content").css("border", "#fcd2d6 1px solid")
+                smiley = ""
                 showmessage()
                 scrollBot()
                 
@@ -100,7 +153,11 @@ $(document).ready(function(){
             }
         })
     }
+    $("#smileyMenuTitle").on("click", function(){
+        alert("ajoute le smiley sur le quel vous avez cliquez a la fin de votre message \n⚪ pour retirer le smiley\nseulement un seul smiley possible\nhttps://wprock.fr/blog/emoji-smiley-copier-coller/ ")
+    })
     
+
     /////////////////////////////   disconnect     //////////////
 
     $("#disconnect").on("click",function(){

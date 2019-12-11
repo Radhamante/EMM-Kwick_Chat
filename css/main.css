@@ -52,6 +52,7 @@ body {
     font-size: 30px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 #messagePart{
     width: calc(85% - 1px);
@@ -89,9 +90,8 @@ body {
     overflow: hidden;
 }
 #message input{
-    width: 90%;
+    width: 85%;
     height: 30px;
-    margin: 20px;
     background-color: var(--background);
     color: var(--textcolor);
     border: var(--maincolor) solid 1px;
@@ -102,7 +102,7 @@ body {
     transition: 0.1s;
     cursor: pointer;
 }
-#message svg:hover{
+#message > svg:hover{
     color: #ffaab3;
 }
 .msg{
@@ -126,7 +126,7 @@ body {
     ;
 }
 .msg p{
-    max-width: 600px;
+    max-width: 90%;
     margin: 0;
     background-color: #f6e8ea;
     padding: 5px 20px;
@@ -134,7 +134,7 @@ body {
     font-size: 15px;
     border-radius: 20px;
     width: max-content;
-    
+    overflow-x: hidden
 }
 .personnal p{
     background-color: var(--maincolor);
@@ -204,10 +204,45 @@ body {
 #disconnect_menu div span:hover{
     background-color: #c0d6df3f ;
 }
-
-#jebite{
-    position: absolute;
+#smileyMenuButton{
+    cursor: pointer;
+    user-select: none;
 }
+#smileyMenu{
+    display: none;
+    flex-wrap: wrap;
+    position: absolute;
+    height: max-content;
+    justify-content: center;
+    width: 200px;
+    right: 10px;
+    bottom: 80px;
+    background-color: var(--background);
+    border: var(--maincolor) 1px solid;
+    border-radius: 15px;
+    overflow-y: scroll;
+    scrollbar-color: var(--maincolor) var(--background);
+    scrollbar-width: thin;
+}
+#smileyMenuTitle{
+    width: 90% !important;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid var(--maincolor);
+    margin-left: 4%;
+    margin-bottom: 5px;
+    color: #f45b69
+}
+#smileyMenu span{
+    float: initial;
+    font-size: 20px;
+    width: 15%;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+
 
 
 @media (max-width: 992px) { 
