@@ -3,9 +3,9 @@ body {
     background-color: var(--background);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    --background: #f5f5f5;
-    --maincolor: #c0d6df;
-    --textcolor: #0d0221;
+        --background: #f5f5f5;
+        --maincolor: #fcd2d6 ;
+        --textcolor: #b11724;
     display: flex;
     justify-content: space-around;
     height: 100vh;
@@ -15,7 +15,7 @@ h1{
     font-family: bely-display, sans-serif; 
     font-weight: 400;
     font-size: 70px;
-    color: #26547c;
+    color: #f45b69;
     width: 40vw;
     display: flex;
     justify-content: center;
@@ -55,6 +55,8 @@ input {
     border: var(--maincolor) 1px solid;
     border-radius: 10px;
     color: --textcolor;
+    width: 180px;
+    font-size: 14px;
 }
 a {
     color: #978897;
@@ -69,9 +71,17 @@ input[type="button"]{
 }
 label{
     margin-top: 5%;
-    color: #26547c;
+    color: #f45b69;
     font-size: 30px;
-    border: #26547c 1px solid;
+    border: var(--maincolor) 1px solid;
     border-radius: 50%;
     padding: 0px 6px 2px 6px
+}
+.error_message{
+    width: max-content;
+    height: max-content;
+    color: var(--textcolor);
+    position: absolute;
+    top: 30%;
+    background: none;
 }
