@@ -76,9 +76,13 @@ body {
     color: var(--textcolor);
 }
 
-#user svg{
+.dot_green{
     margin-left: 7px; 
     color: #77bd31
+}
+.dot_red{
+    margin-left: 7px; 
+    color: #bd3131
 }
 .all_user{ 
     margin: 6px 0;
@@ -220,20 +224,10 @@ body {
     background-color: var(--background);
     border: var(--maincolor) 1px solid;
     border-radius: 15px;
-    overflow-y: scroll;
-    scrollbar-color: var(--maincolor) var(--background);
-    scrollbar-width: thin;
+    border-bottom-right-radius: 0px;
+
 }
-#smileyMenuTitle{
-    width: 90% !important;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-bottom: 1px solid var(--maincolor);
-    margin-left: 4%;
-    margin-bottom: 5px;
-    color: #f45b69
-}
+
 #smileyMenu span{
     float: initial;
     font-size: 20px;

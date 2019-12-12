@@ -6,10 +6,17 @@ $(document).ready(function(){
 
 
     ////////////////////////       AFFICHAGE DES USERS         ///////////////////////////////
+
+
+
     showUser()
     setInterval(function(){
         showUser()
-    },10000)
+    },5000)
+    if (localStorage.getItem("user_list") === null){
+        localStorage.setItem("user_list","")
+    }
+    // localStorage.setItem("user_list","")
     function showUser(){
         $.ajax({
             url: "http://greenvelvet.alwaysdata.net/kwick/api/user/logged/" + localStorage.getItem('token'),
@@ -19,12 +26,20 @@ $(document).ready(function(){
             success: function(result, status, xhr) {
                 $( ".userrs" ).remove();
                 for (let index = 0; index < result.result.user.length; index++) {
+                    if (localStorage.getItem("user_list").split(" ").indexOf(result.result.user[index].split(" ").join("_")) == -1) {
+                        localStorage.setItem("user_list" ,localStorage.getItem("user_list") + result.result.user[index].split(" ").join("_") + " ")
+                    }
                     if (result.result.user[index].toLowerCase() != localStorage.getItem("name")) {
-                        $("#user").append("<div class='userrs'><i class='far fa-dot-circle'></i><p class='all_user'>" + result.result.user[index] + "</b></div>")
+                        $("#user").append("<div class='userrs'><i class='dot_green far fa-dot-circle'></i><p class='all_user'>" + result.result.user[index].split(" ").join("_") + "</b></div>")
                     }else{
-                        $("#user").append("<div class='userrs me'><i class='far fa-dot-circle'></i><p class='all_user'>Vous (" + result.result.user[index] + ") </p></div>")
+                        $("#user").append("<div class='userrs me'><i class='dot_green far fa-dot-circle'></i><p class='all_user'>Vous (" + result.result.user[index] + ") </p></div>")
                     }
                 }  
+                for (let index = 0; index < localStorage.getItem("user_list").split(" ").length-1; index++) {
+                    if ( result.result.user.indexOf(localStorage.getItem("user_list").split(" ")[index]) == -1) {
+                        $("#user").append("<div class='userrs'><i class='dot_red far fa-dot-circle'></i><p class='all_user'>" + localStorage.getItem("user_list").split(" ")[index].split(" ").join("_") + "</b></div>")
+                    }
+                }
             },
             error: function(xhr, status, error) {
             }
@@ -33,6 +48,7 @@ $(document).ready(function(){
     /////////////////////////     affichage des messages ////////////////////////
 
     sessionStorage.setItem("time",0)
+    
     showmessage()
     function showmessage() {
         $.ajax({
@@ -43,7 +59,6 @@ $(document).ready(function(){
             contentType: 'application/json; charset=utf-8',
             success: function(result, status, xhr) {
                 for (let index = 0; index < result.result.talk.length; index++) {
-                    console.log()
                     if (localStorage.getItem("name") == result.result.talk[index].user_name.toLowerCase()) {
                         $("#messageList").append("<div class='msg personnal'><span>" + result.result.talk[index].user_name + "</span><p>" + result.result.talk[index].content + "</p></div>");
                         
@@ -71,13 +86,10 @@ $(document).ready(function(){
     //     $(".test").append("<span>" + "test" + "</span>")
     // });
 
-    ///////////////////////////    envoie d'un message     /////////////////////////
+    ///////////////////////////  smiley   ///////////////////////
     
     let smileyMenuState = 0;
 
-    $("#send_message").on("click", function(){
-        send_message()
-    })
     $("#smileyMenuButton").on("click", function(){
         if (smileyMenuState == 0) {
             $("#smileyMenu").css("display","flex")
@@ -88,53 +100,94 @@ $(document).ready(function(){
         }
     })
     $("#⚪").on("click", function(){
-        smiley = "" 
+        $("#message_content").val($("#message_content").val() + "⚪")
     })
     $("#😀").on("click", function(){
-        smiley = "😀" 
+        $("#message_content").val($("#message_content").val() + "😀")
     })
     $("#😎").on("click", function(){
-        smiley = "😎" 
+        $("#message_content").val($("#message_content").val() + "😎") 
     })
     $("#😍").on("click", function(){
-        smiley = "😍" 
+        $("#message_content").val($("#message_content").val() + "😍") 
     })
     $("#💩").on("click", function(){
-        smiley = "💩" 
+        $("#message_content").val($("#message_content").val() + "💩") 
     })
     $("#😂").on("click", function(){
-        smiley = "😂" 
+        $("#message_content").val($("#message_content").val() + "😂") 
     })
     $("#😅").on("click", function(){
-        smiley = "😅" 
+        $("#message_content").val($("#message_content").val() + "😅") 
     })
     $("#🤩").on("click", function(){
-        smiley = "🤩" 
+        $("#message_content").val($("#message_content").val() + "🤩") 
     })
     $("#😰").on("click", function(){
-        smiley = "😰" 
+        $("#message_content").val($("#message_content").val() + "😰") 
     })
     $("#😴").on("click", function(){
-        smiley = "😴" 
+        $("#message_content").val($("#message_content").val() + "😴") 
     })
     $("#🖕").on("click", function(){
-        smiley = "🖕" 
+        $("#message_content").val($("#message_content").val() + "🖕") 
     })
     $("#👌").on("click", function(){
-        smiley = "👌" 
+        $("#message_content").val($("#message_content").val() + "👌") 
     })
     $("#👍").on("click", function(){
-        smiley = "👍" 
+        $("#message_content").val($("#message_content").val() + "👍") 
     })
     $("#💪").on("click", function(){
-        smiley = "💪" 
+        $("#message_content").val($("#message_content").val() + "💪") 
     })
     $("#❔").on("click", function(){
-        smiley = "❔" 
+        $("#message_content").val($("#message_content").val() + "❔") 
     })
+    $("#❤️").on("click", function(){
+        $("#message_content").val($("#message_content").val() + "❤️") 
+    })
+    $("#😏").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "😏")
+    })
+    $("#🤠").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "🤠")
+    })
+    $("#💦").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "💦")
+    })
+    $("#🔥").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "🔥")
+    })
+    $("#💔").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "💔")
+    })
+    $("#🤑").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "🤑")
+    })
+    $("#🍑").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "🍑")
+    })
+    $("#🍆").on("click", function(){ 
+        $("#message_content").val($("#message_content").val() + "🍆")
+    })
+
+    
+    ///////////////////////////    envoie d'un message     /////////////////////////
+
+    $('#message_content').keypress(function(event){
+        if(event.which == 13){
+            send_message()	
+        }
+    });
+
+    $("#send_message").on("click", function(){
+        send_message()
+    })
+    
     function send_message() {
         $.ajax({
-            url: "http://greenvelvet.alwaysdata.net/kwick/api/say/" + localStorage.getItem('token') + "/" + localStorage.getItem('id') + "/" + $("#message_content").val() + smiley,
+            url: "http://greenvelvet.alwaysdata.net/kwick/api/say/" + localStorage.getItem('token') + "/" + localStorage.getItem('id') + "/" + $("#message_content").val(),
             dataType: 'jsonp',
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
@@ -145,7 +198,7 @@ $(document).ready(function(){
                 smiley = ""
                 showmessage()
                 scrollBot()
-                
+                $("#smileyMenu").css("display","none")
             },
             error: function(xhr, status, error) {
                 console.log(xhr)
@@ -153,10 +206,8 @@ $(document).ready(function(){
             }
         })
     }
-    $("#smileyMenuTitle").on("click", function(){
-        alert("ajoute le smiley sur le quel vous avez cliquez a la fin de votre message \n⚪ pour retirer le smiley\nseulement un seul smiley possible\nle smiley est invisible sur la saisie et apparait uniquement lors de l'envoie du message\nhttps://wprock.fr/blog/emoji-smiley-copier-coller/ ")
-    })
-    
+
+
 
     /////////////////////////////   disconnect     //////////////
 
@@ -183,15 +234,6 @@ $(document).ready(function(){
     $("#disconnect_no").on("click",function(){
         $("#disconnect_menu_background").css("display","none");
         $("#disconnect_menu").css("display","none");
-    });
-
-    $('#message_content').keypress(function(event){
-	
-        var keycode = (event.keyCode ? event.keyCode : event.which);
-        if(keycode == '13'){
-            send_message()	
-        }
-    
     });
 
 });

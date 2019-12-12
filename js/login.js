@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    if (localStorage.getItem("token") === null) {
-    }else{
-        window.location = "main.html"
-    }
+    // if (localStorage.getItem("token") === null) {
+    // }else{
+    //     window.location = "main.html"
+    // }
 
     const api_url = "http://greenvelvet.alwaysdata.net/kwick/api/"
         $("#login_submit").on("click",function(){
